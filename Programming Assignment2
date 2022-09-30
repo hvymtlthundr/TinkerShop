@@ -1,0 +1,25 @@
+x <- c(y = 10) {                   #set a value for x, here is a vector of length 1
+        a <- NULL                  # set a neutral (Na) value for a
+        set <- function(y) {       # placeholder fxn
+                y <<- z            # y cahce at value z
+                a <<- NULL         # a cache at value (NA)
+        }
+        
+        b <- str(x)                #determine string value of x defined as b     
+        m <-  mean(x + y)          #set m as function of the average of x and y, will return error as y=z, z is undefined
+        v <- z
+        list(x, y, z) 
+    
+}
+
+cachemean <- str(x, ...) {
+        m <- x                    #redefine m to return x
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }                         #test return value
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
+}
